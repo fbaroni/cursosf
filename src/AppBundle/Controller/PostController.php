@@ -10,7 +10,23 @@ use Symfony\Component\HttpFoundation\Response;
 class PostController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/crear", name="post_crear")
+     */
+    public function crearAction(Request $request)
+    {
+        return new Response('crear');
+    }
+
+    /**
+     * @Route("/modificar/{nombre}", name="post_modificar")
+     */
+    public function modificarAction(Request $request, $nombre)
+    {
+        return new Response('modificar ' . $nombre);
+    }
+
+    /**
+     * @Route("/", name="post_home")
      */
     public function indexAction(Request $request)
     {
