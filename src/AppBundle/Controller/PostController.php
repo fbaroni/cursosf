@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 class PostController extends Controller
 {
     /**
-     * @Route("/crear", name="post_crear")
+     * @Route("/crear")
      */
     public function crearAction(Request $request)
     {
@@ -18,7 +18,7 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/modificar/{nombre}", name="post_modificar")
+     * @Route("/modificar/{nombre}")
      */
     public function modificarAction(Request $request, $nombre)
     {
@@ -26,10 +26,18 @@ class PostController extends Controller
     }
 
     /**
-     * @Route("/", name="post_home")
+     * @Route("/")
      */
     public function indexAction(Request $request)
     {
-        return new Response('homepage');
+        return new Response('listado');
+    }
+
+    /**
+     * @Route("/ver/{id}")
+     */
+    public function verAction(Request $request, $nombre)
+    {
+        return new Response('ver ' . $nombre);
     }
 }
